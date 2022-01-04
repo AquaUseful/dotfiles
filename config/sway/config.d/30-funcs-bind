@@ -27,3 +27,6 @@ bindsym Print exec $screenshot_fullscreen_copy
 bindsym Ctrl+Print exec $screenshot_region_copy
 bindsym Shift+Print exec $screenshot_fullscreen_save
 bindsym Ctrl+Shift+Print exec $screenshot_region_save
+
+### End sway session
+bindsym $mod+Shift+e exec $exit_sway

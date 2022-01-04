@@ -6,3 +6,6 @@ output $external pos 0 -1080
 
 bindswitch --reload --locked lid:on output $laptop disable
 bindswitch --reload --locked lid:off output $laptop enable
+
+set $outputs_off swaymsg "output * dpms off"
+set $outputs_on swaymsg "output * dpms on"

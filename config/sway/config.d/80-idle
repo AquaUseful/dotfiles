@@ -1,0 +1,5 @@
+exec swayidle -w \
+    timeout 300 '$lock' \
+    timeout 900 '$outputs_off' \
+    resume '$outputs_on' \
+    before-sleep '$lock'

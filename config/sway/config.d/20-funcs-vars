@@ -27,3 +27,4 @@ set $screenshot_fullscreen_save grim $screenshot_path
 set $screenshot_region_copy grim -g "$(slurp)" -t png - | wl-copy -t image/png
 set $screenshot_region_save grim -g "$(slurp)" $screenshot_path
 
+set $exit_sway swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
