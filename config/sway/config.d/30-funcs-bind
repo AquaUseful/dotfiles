@@ -21,3 +21,9 @@ bindsym Ctrl+XF86AudioMute exec $in_mute_toggle
 ### Brightness
 bindsym XF86MonBrightnessUp exec $brightness_raise
 bindsym XF86MonBrightnessDown exec $brightness_lower
+
+### Screenshot
+bindsym Print exec $screenshot_fullscreen_copy
+bindsym Ctrl+Print exec $screenshot_region_copy
+bindsym Shift+Print exec $screenshot_fullscreen_save
+bindsym Ctrl+Shift+Print exec $screenshot_region_save
