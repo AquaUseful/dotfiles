@@ -1,0 +1,206 @@
+* {
+  border: none;
+  font-family: Ubuntu, regular;
+  font-size: 12px;
+  /* color: #ffffff; */ 
+  /* border-radius: 5px; */
+}
+
+.icon {
+  margin: 5px;
+  font-size: 10px;
+}
+
+window#waybar {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+.modules-right,
+.modules-center,
+.modules-left {
+  margin: 2px 2px 2px 2px;
+  background: transparent;
+}
+
+#workspaces button {
+  padding: 0 3px;
+  margin: 0;
+  background-color: transparent;
+  color: #3a3a3a;
+  min-width: 16px;
+}
+#workspaces button.focused {
+  color: #ffffff;
+  font-weight: bold;
+}
+#workspaces button:hover {
+  border-radius: 8px;
+  padding: 0 3px;
+  color: #000000;
+  background: rgba(255, 255, 255, 1);
+}
+#workspace button.urgent {
+  padding: 0 3px;
+  margin: 0;
+}
+
+#clock,
+#battery,
+#temperature,
+#workspaces,
+#idle_inhibitor,
+#pulseaudio,
+#network,
+#cpu,
+#memory,
+#language,
+#mode,
+#window,
+#tray
+{
+  padding: 0 7px;
+  margin: 0 0;
+  /*background-color: #000000;*/
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.8);
+  /* border-radius: 10px; */
+}
+
+#workspaces {
+  padding: 0;
+  margin: 0;
+}
+
+/*-- Some magic with border radius --*/
+#idle_inhibitor {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+#clock {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+#workspaces {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+#network {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+#window {
+  border-radius: 8px;
+}
+#mode {
+  border-radius: 8px;
+}
+#tray {
+  border-radius: 8px;
+}
+
+#idle_inhibitor.activated {
+ background: rgba(46, 204, 64, 0.8);
+}
+
+#battery {
+  background: rgba(0, 0, 0, 0.8);
+}
+#battery.good:not(charging),
+#battery.plugged {
+  background: rgba(46, 204, 64, 0.8);
+}
+#battery.charging {
+  background: rgba(46, 204, 64, 0.8);
+  animation-name: blink_green;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+#battery.warning:not(charging) {
+  background: rgba(255, 220, 0, 0.8);
+  color: #000000;
+}
+#battery.critical:not(charging) {
+ background: rgba(255, 65, 54, 0.8);
+ animation-name: blink_red;
+ animation-duration: 1s;
+ animation-timing-function: ease-in-out;
+ animation-iteration-count: infinite;
+ animation-direction: alternate;
+}
+
+#network.ethernet {
+  color: #39CCCC;
+}
+#network.wifi {
+  color: #F012BE;
+}
+#network.linked {
+  background: rgba(251, 255, 0, 0.8);
+  color: #000000;
+}
+#network.disconnected {
+  background: rgba(255, 65, 54, 0.8);
+}
+
+#pulseaudio{
+  /*background: rgba(57, 204, 204, 0.8);*/
+  color: #7FDBFF;
+}
+#pulseaudio.muted {
+  background: rgba(255, 65, 54, 0.8);
+  color: #ffffff;
+}
+
+#cpu {
+  /*background: rgba(61, 153, 112, 0.8);*/
+  color: #01FF70;
+}
+
+#memory {
+  /*background: rgba(133, 20, 75, 0.8);*/
+  color: #FFDC00;
+}
+
+#temperature {
+  color: #7FDBFF;
+}
+#temperature.critical {
+  background: rgba(255, 65, 54, 0.8);
+  color: #000000;
+  animation-name: blink_red;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#language {
+  /*background: rgba(170, 170, 170, 0.8);*/
+  color: #DDDDDD;
+}
+
+#mode {
+  margin: 0 8px;
+  color: #FF4136;
+}
+
+#tray {
+  margin: 0 5px;
+}
+
+@keyframes blink_red {
+  to {background: rgba(0, 0, 0, 0.8);
+  color: #FF4136;}
+}
+@keyframes blink_green {
+  to {
+    background: rgba(0, 0, 0, 0.8);
+    color: #2ECC40;
+  }
+}
