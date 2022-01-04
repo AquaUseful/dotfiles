@@ -1,0 +1,8 @@
+### Notification daemon
+exec mako
+
+### Polkit daemon
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+### xsettings
+exec xsettingsd

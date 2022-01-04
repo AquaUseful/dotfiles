@@ -1,0 +1,24 @@
+### Global border
+default_border pixel 2
+### Font
+font pango:Ubuntu Regular 10
+### Cursor
+seat * xcursor_theme Simp1e-dark 16
+### Wallpaper
+output * bg $HOME/.wallpaper fill
+
+### Config for some apps
+for_window [app_id="^pavucontrol$"] floating enable, sticky enable, resize set 30 ppt 60 ppt
+for_window [app_id="^cmst$"] floating enable, sticky enable, resize set 60 ppt 80 ppt
+for_window [app_id="^launcher$"] floating enable, sticky enable, resize 30 ppt 60 ppt
+for_window [app_id="^zoom$"] floating enable, sticky enable
+
+for_window [app_id="^telegram-desktop$"] border none
+
+### GTK3 theme
+exec_always {
+    gsettings set $gnome-schema gtk-theme 'Materia-dark'
+    gsettings set $gnome-schema icon-theme 'Papirus-Dark'
+    gsettings set $gnome-schema cursor-theme 'Simp1e-dark'
+    gsettings set $gnome-schema font-name 'Ubuntu Regular 10'
+}

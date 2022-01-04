@@ -1,0 +1,23 @@
+bindsym --to-code $mod+Shift+q kill
+bindsym --to-code $mod+Shift+c reload
+
+### Bar
+bindsym --to-code $mod+x exec $bar_toggle
+
+### Power
+bindsym --to-code $mod+Shift+F12 exec $poweroff
+bindsym --to-code $mod+Shift+Ctrl+F12 exec $reboot
+bindsym --to-code $mod+Shift+F11 exec $suspend
+bindsym --to-code $mod+Shift+Ctrl+F11 exec $hibernate
+
+### Volume
+bindsym XF86AudioRaiseVolume exec $out_vol_raise
+bindsym XF86AudioLowerVolume exec $out_vol_lower
+bindsym XF86AudioMute exec $out_mute_toggle
+bindsym Ctrl+XF86AudioRaiseVolume exec $in_vol_raise
+bindsym Ctrl+XF86AudioLowerVolume exec $in_vol_lower
+bindsym Ctrl+XF86AudioMute exec $in_mute_toggle
+
+### Brightness
+bindsym XF86MonBrightnessUp exec $brightness_raise
+bindsym XF86MonBrightnessDown exec $brightness_lower

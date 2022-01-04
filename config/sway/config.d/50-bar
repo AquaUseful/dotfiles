@@ -1,0 +1,5 @@
+### Kill previously started bar
+exec_always killall $bar
+
+### Start a bar
+exec_always $bar

@@ -1,0 +1,29 @@
+set $poweroff loginctl poweroff
+set $reboot loginctl reboot
+set $suspend loginctl suspend
+set $hibernate loginctl hibernate
+
+set $bar_toggle killall -SIGUSR1 $bar
+
+set $vol_step 5%
+
+set $out_vol_raise pactl set-sink-volume $(pactl get-default-sink) +$vol_step
+set $out_vol_lower pactl set-sink-volume $(pactl get-default-sink) -$vol_step
+set $out_mute_toggle pactl set-sink-mute $(pactl get-default-sink) toggle
+
+set $in_vol_raise pactl set-source-volume $(pactl get-default-source) +$vol_step
+set $in_vol_lower pactl set-source-volume $(pactl get-default-source) -$vol_step
+set $in_mute_toggle pactl set-source-mute $(pactl get-default-source) toggle
+
+set $brightness_step 10
+
+set $brightness_raise light -A $brightness_step
+set $brightness_lower light -U $brightness_step
+
+set $screenshot_path "$HOME/Pictures/screenshots/screenshot-$(date +'%Y-%m-%d_%H:%m:%S').png"
+
+set $screenshot_fullscreen_copy grim -t png - | wl-copy -t image/png
+set $screenshot_fullscreen_save grim $screenshot_path
+set $screenshot_region_copy grim -g "$(slurp)" -t png - | wl-copy -t image/png
+set $screenshot_region_save grim -g "$(slurp)" $screenshot_path
+

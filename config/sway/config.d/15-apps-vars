@@ -1,0 +1,8 @@
+set $term alacritty
+set $browser firefox
+set $filemanager nemo
+set $launcher sway-launcher-desktop
+set $lock swaylock -f
+set $bar waybar
+
+set $menu $term --class=launcher -e $launcher
