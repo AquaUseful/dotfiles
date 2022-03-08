@@ -9,6 +9,7 @@ bindsym --to-code $mod+Shift+F12 exec $poweroff
 bindsym --to-code $mod+Shift+Ctrl+F12 exec $reboot
 bindsym --to-code $mod+Shift+F11 exec $suspend
 bindsym --to-code $mod+Shift+Ctrl+F11 exec $hibernate
+bindsym --to-code $mod+F12 exec '$player_all_pause; $lock'
 
 ### Volume
 bindsym XF86AudioRaiseVolume exec $out_vol_raise
@@ -30,3 +31,9 @@ bindsym Ctrl+Shift+Print exec $screenshot_region_save
 
 ### End sway session
 bindsym $mod+Shift+e exec $exit_sway
+
+### Player
+bindsym XF86AudioStop exec $player_stop
+bindsym XF86AudioPlay exec $player_playpause
+bindsym XF86AudioNext exec $player_next
+bindsym XF86AudioPrev exec $player_previous

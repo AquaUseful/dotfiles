@@ -1,8 +1,16 @@
 ### Notification daemon
-exec mako
+exec mako --default-timeout 5000
 
 ### Polkit daemon
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 ### xsettings
 exec xsettingsd
+
+### PipeWire
+exec /usr/bin/pipewire
+exec /usr/bin/pipewire-pulse
+exec /usr/bin/pipewire-media-session
+
+### Noisetorch
+exec noisetorch -t 7 -i $(pactl get-default-source)

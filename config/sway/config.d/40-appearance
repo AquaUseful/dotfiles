@@ -1,9 +1,14 @@
+### Settings
+# Cursor
+set $cursor 'Hacked-Black'
+set $cursor_size 16
+
 ### Global border
 default_border pixel 2
 ### Font
 font pango:Ubuntu Regular 10
 ### Cursor
-seat * xcursor_theme Simp1e-dark 16
+seat * xcursor_theme $cursor $cursor_size
 ### Wallpaper
 output * bg $HOME/.wallpaper fill
 
@@ -16,9 +21,11 @@ for_window [app_id="^zoom$"] floating enable, sticky enable
 for_window [app_id="^telegram-desktop$"] border none
 
 ### GTK3 theme
+set $gnome-schema org.gnome.desktop.interface
 exec_always {
     gsettings set $gnome-schema gtk-theme 'Materia-dark'
     gsettings set $gnome-schema icon-theme 'Papirus-Dark'
-    gsettings set $gnome-schema cursor-theme 'Simp1e-dark'
+    gsettings set $gnome-schema cursor-theme $cursor
+    gsettings set $gnome-schema cursor-size $cursor_size
     gsettings set $gnome-schema font-name 'Ubuntu Regular 10'
 }
