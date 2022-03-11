@@ -1,0 +1,34 @@
+#!/bin/bash
+
+MODULE_INFO='/proc/modules'
+NVIDIA_MODULE='nvidia'
+
+NORMAL_RUN='dbus-launch --exit-with-session sway'
+NVIDIA_RUN='elogind-inhibit --what=sleep --mode=block --why=nvidia dbus-launch --exit-with-session sway --unsupported-gpu'
+
+export CLUTTER_BACKEND=wayland
+export SDL_VIDEODRIVER=wayland
+export XDG_SESSION_TYPE=wayland
+export QT_QPA_PLATFORM=wayland
+export QT_QPA_PLATFORMTHEME=gtk2
+export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+export MOZ_ENABLE_WAYLAND=1
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+#export WLR_RENDERER=vulkan
+
+trap "pkill -HUP -u $USER" EXIT
+
+if grep -Fwq "${NVIDIA_MODULE}" "${MODULE_INFO}"; then
+    echo "NVIDIA module detected, enabling some haxxxx" 1>&2
+    export GBM_BACKEND=nvidia-drm
+    export __GLX_VENDOR_LIBRARY_NAME=nvidia
+    export WLR_NO_HARDWARE_CURSORS=1
+    exec $NVIDIA_RUN
+else
+    echo "No NVIDIA module, running normally" 1>&2
+    unset GBM_BACKEND
+    unset __GLX_VENDOR_LIBRARY_NAME
+    export WLR_NO_HARDWARE_CURSORS=0
+    exec $NORMAL_RUN
+fi
