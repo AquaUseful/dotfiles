@@ -1,5 +1,5 @@
 set $term alacritty
-set $browser firefox
+set $browser flatpak run org.mozilla.firefox
 set $filemanager nemo
 set $launcher sway-launcher-desktop
 set $lock swaylock -f

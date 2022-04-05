@@ -1,6 +1,7 @@
 input "type:keyboard" {
     xkb_layout "us,ru"
-    xkb_options "grp:caps_toggle"
+    xkb_options "grp:caps_toggle",
+    #xkb_options "grp:shift_alt_toggle",
     xkb_numlock "enabled"
 }
 

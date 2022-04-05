@@ -5,7 +5,7 @@ set $suspend loginctl suspend
 set $hibernate loginctl hibernate
 
 ### Bar
-set $bar_toggle killall -SIGUSR1 $bar
+set $bar_toggle pkill -SIGUSR1 $bar
 
 ### Volume control
 set $vol_step 5%

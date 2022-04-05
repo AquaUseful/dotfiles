@@ -7,10 +7,19 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 ### xsettings
 exec xsettingsd
 
+### Desktop portal
+exec /usr/libexec/xdg-desktop-portal-gtk
+
 ### PipeWire
 exec /usr/bin/pipewire
 exec /usr/bin/pipewire-pulse
 exec /usr/bin/pipewire-media-session
 
 ### Noisetorch
-exec noisetorch -t 7 -i $(pactl get-default-source)
+#exec noisetorch -t 7 -i $(pactl get-default-source)
+
+### NetworkManager appler
+exec nm-applet --indicator
+
+### Blueman applet
+exec blueman-applet

@@ -1,0 +1,15 @@
+#!/bin/bash
+FIREJAILED_ICON=''
+DEFAULT_ICON=''
+
+get_firejailed_pids() {
+    firejail --tree | grep -oE '^[[:blank:]]*[0-9]+\:' | tr -d '[:blank:]\:' | uniq | jq -csM
+}
+create_main_query() {
+    echo "[.container.name, (if .container.pid | IN($(get_firejailed_pids)[]) then \"${FIREJAILED_ICON}\" else \"\" end)] | join(\" \")"
+}
+focused_select_query='select(.change == "focus" or (.change == "title" and .container.focused))'
+
+swaymsg -mr -t SUBSCRIBE "['window']" | jq --unbuffered -cM "$focused_select_query" | while IFS= read -r sway_event; do
+    jq --unbuffered -r "$(create_main_query)" <<<"${sway_event}"
+done
